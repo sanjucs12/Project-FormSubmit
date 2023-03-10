@@ -18,5 +18,15 @@ function savetolocal(e){
         Name:name,
         Email:mail
     }
-    localStorage.setItem('UserDetails',JSON.stringify(obj));
+    localStorage.setItem(mail,JSON.stringify(obj));
+
+    //adding input name and email to the page
+
+    //create li element
+    let li=document.createElement('li');
+    //li.className='userdata';
+    li.appendChild(document.createTextNode(name));
+    li.appendChild(document.createTextNode(mail));
+    form.appendChild(li);
+
 }
