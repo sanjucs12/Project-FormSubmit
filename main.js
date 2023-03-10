@@ -5,8 +5,6 @@ let userlist=document.getElementsByClassName('userdata');
 //Form submit Event
 form.addEventListener('submit',savetolocal);
 
-//Form delete event
-userlist.addEventListener('click',deletebutn)
 
 //////////*****function to save and add user data*********///////////////
 
@@ -40,6 +38,11 @@ function savetolocal(e){
 
     //add delete button
     let deletebut=document.createElement('button');
+    deletebut.onclick=()=>{
+        localStorage.removeItem(obj.Email);
+        form.removeChild(li)
+    }
+
 
     //append text node
     deletebut.appendChild(document.createTextNode('delete'));
@@ -51,12 +54,3 @@ function savetolocal(e){
 
 }
 
-//////////*****function to delete user data*********///////////////
-
-function deletebutn(e){
-    if(e.target.contains('delete'))
-    {
-        let li=e.target.ParentElement;
-        form.removeChild(li);
-    }
-}
