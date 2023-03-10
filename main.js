@@ -46,7 +46,7 @@ function savetolocal(e){
     let editbutn=document.createElement('button');
         editbutn.onclick=()=>{
         localStorage.removeItem(obj.Email);
-        form.removeChild(li)
+        form.removeChild(li);
     }
 
 
