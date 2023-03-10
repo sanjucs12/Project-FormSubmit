@@ -1,5 +1,4 @@
 let form=document.getElementById('my-form');
-let userlist=document.getElementsByClassName('userdata');
 
 
 //Form submit Event
@@ -37,18 +36,27 @@ function savetolocal(e){
     //li.appendChild(document.createTextNode(mail));
 
     //add delete button
-    let deletebut=document.createElement('button');
-    deletebut.onclick=()=>{
+    let deletebutn=document.createElement('button');
+    deletebutn.onclick=()=>{
+        localStorage.removeItem(obj.Email);
+        form.removeChild(li)
+    }
+
+    //add edit button
+    let editbutn=document.createElement('button');
+        editbutn.onclick=()=>{
         localStorage.removeItem(obj.Email);
         form.removeChild(li)
     }
 
 
     //append text node
-    deletebut.appendChild(document.createTextNode('delete'));
+    deletebutn.appendChild(document.createTextNode('delete'));
+    editbutn.appendChild(document.createTextNode('Edit'))
 
     //append button to li
-    li.appendChild(deletebut);
+    li.appendChild(deletebutn);
+    li.appendChild(editbutn);
 
     form.appendChild(li);
 
