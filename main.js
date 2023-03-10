@@ -5,25 +5,18 @@ let form=document.getElementById('my-form');
 form.addEventListener('submit',savetolocal);
 
 function savetolocal(e){
-    let name=document.getElementById('name');
-    let mail=document.getElementById('email');
+    let name=document.getElementById('name').value;
+    let mail=document.getElementById('email').value;
     e.preventDefault();
     // console.log(name.value);
     // console.log(mail.value);
 
-    localStorage.setItem(name.value,mail.value);
+    // localStorage.setItem('Name',name);
+    // localStorage.setItem('Email',mail);
+    
+    const obj={
+        Name:name,
+        Email:mail
+    }
+    localStorage.setItem('UserDetails',JSON.stringify(obj));
 }
-
-// // Put DOM elements into variables
-// const myForm = document.querySelector('#my-form');
-// const nameInput = document.querySelector('#name');
-// const emailInput = document.querySelector('#email');
-
-// // Listen for form submit
-// myForm.addEventListener('submit', onSubmit);
-
-// function onSubmit(e) {
-//   e.preventDefault();
-//   console.log(nameInput.value);
-//   console.log(emailInput.value);
-// }
